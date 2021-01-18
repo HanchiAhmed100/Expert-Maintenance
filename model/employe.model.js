@@ -2,10 +2,6 @@ const { DataTypes } = require("sequelize"); // Import the built-in data types
 
 module.exports = (sequelize, Sequelize) => {
     const employe = sequelize.define("employe", {
-        employe_id:{
-            type: DataTypes.UUID,
-            defaultValue: Sequelize.UUIDV4 // Or Sequelize.UUIDV1
-        },
         login: {
             type: Sequelize.STRING
         },

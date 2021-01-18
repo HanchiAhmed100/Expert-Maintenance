@@ -1,4 +1,4 @@
-const db = require("../models/index.js");
+const db = require("../model");
 const contract = db.contract;
 const Op = db.Sequelize.Op;
 

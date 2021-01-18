@@ -2,10 +2,6 @@ const { DataTypes } = require("sequelize"); // Import the built-in data types
 
 module.exports = (sequelize, Sequelize) => {
     const site = sequelize.define("site", {
-        site_id:{
-        type: DataTypes.UUID,
-        defaultValue: Sequelize.UUIDV4 // Or Sequelize.UUIDV1
-      },
       longitude: {
         type: Sequelize.DECIMAL
       },

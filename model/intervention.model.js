@@ -1,10 +1,7 @@
 const { DataTypes } = require("sequelize"); // Import the built-in data types
 module.exports = (sequelize, Sequelize) => {
     const intervention = sequelize.define("intervention", {
-        intervention_id:{
-            type: DataTypes.UUID,
-            defaultValue: Sequelize.UUIDV4 // Or Sequelize.UUIDV1
-        },
+
         datedebut: {
             type: Sequelize.DATE
         },
