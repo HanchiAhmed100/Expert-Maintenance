@@ -28,6 +28,12 @@ db.sequelize.sync();
 //load routers
 require("./routes/client.route.js")(app);
 require("./routes/contract.route.js")(app);
+require("./routes/client.route.js")(app);
+require("./routes/contract.route.js")(app);
+require("./routes/client.route.js")(app);
+require("./routes/contract.route.js")(app);
+require("./routes/client.route.js")(app);
+require("./routes/contract.route.js")(app);
 
 
 // set port, listen for requests
