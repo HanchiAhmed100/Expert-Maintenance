@@ -26,32 +26,30 @@ exports.createClient = (req, res) => {
 
 // Retrieve all clients from the database.
 exports.findAllClients = (req, res) => {
-    var condition = null;
-  
-    client.findAll()
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving clients."
-        });
+  client.findAll()
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving clients."
       });
+    });
 };
 
 // Find a single client with an id
 exports.findOne = (req, res) => {
-    const id = req.params.id;
-    client.findByPk(id)
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error retrieving client with id=" + id
-        });
+  const id = req.params.id;
+  client.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving client with id=" + id
       });
+    });
 };
 
 // Update a client by the id in the request
