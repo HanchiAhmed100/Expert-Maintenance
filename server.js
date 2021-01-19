@@ -35,7 +35,7 @@ db.sequelize.sync()
 
 //load routers
 require("./routes/client.route.js")(app);
-require("./routes/contract.route.js")(app);
+require("./routes/contrat.route.js")(app);
 require("./routes/employe.route.js")(app);
 require("./routes/image.route.js")(app);
 require("./routes/intervention.route.js")(app);
@@ -45,7 +45,7 @@ require("./routes/tache.route.js")(app);
 
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
