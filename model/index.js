@@ -30,15 +30,6 @@ db.intervention = require("./intervention.model.js")(sequelize, Sequelize);
 db.priorite = require("./priorite.model.js")(sequelize, Sequelize);
 db.tache = require("./tache.model.js")(sequelize, Sequelize);
 
-
-// associations 
-
-// db.tutorials.hasMany(db.comments, { as: "comments" });
-// db.comments.belongsTo(db.tutorials, {
-//   foreignKey: "tutorialId",
-//   as: "tutorial",
-// });
-
 //client_contract association
 db.client.hasMany(db.contract);
 db.contract.belongsTo(db.client, {});

@@ -4,11 +4,12 @@ const cors = require("cors");
 
 const app = express();
 
-// var corsOptions = {
-//   origin: "http://localhost:8081"
-// };
+var corsOptions = {
+  origin: "http://localhost:8100"
+  
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -22,19 +23,25 @@ app.get("/", (req, res) => {
 });
 
 const db = require("./model");
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
+
+
+// drop and create database
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop and re-sync db.");
+// });
+
+
+db.sequelize.sync()
 
 //load routers
 require("./routes/client.route.js")(app);
 require("./routes/contract.route.js")(app);
-require("./routes/client.route.js")(app);
-require("./routes/contract.route.js")(app);
-require("./routes/client.route.js")(app);
-require("./routes/contract.route.js")(app);
-require("./routes/client.route.js")(app);
-require("./routes/contract.route.js")(app);
+require("./routes/employe.route.js")(app);
+require("./routes/image.route.js")(app);
+require("./routes/intervention.route.js")(app);
+require("./routes/priorite.route.js")(app);
+require("./routes/site.route.js")(app);
+require("./routes/tache.route.js")(app);
 
 
 // set port, listen for requests

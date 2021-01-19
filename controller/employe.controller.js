@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../model/index.js");
 const employe = db.employe;
 const Op = db.Sequelize.Op;
 
@@ -22,6 +22,37 @@ exports.create = (req, res) => {
         });
     });
 };
+
+exports.login = (req , res) => {
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+  employe.findAll({
+    where: {
+      [Op.and]: [
+        { login : req.body.login },
+        { pwd : req.body.password }
+      ]
+    }     
+  }).then(data => {
+    if(data.length != 0){
+      res.send({"employe" : data, "login":"SUCESS"});
+    }else{
+      res.send({"employe" : data, "login":"FAILED"});
+    }
+  })
+  .catch(err => {
+      res.status(500).send({
+      message:
+          err.message || "Some error occurred while login"
+      });
+  });
+
+
+}
 
 // Retrieve all employe from the database.
 exports.findAll = (req, res) => {
