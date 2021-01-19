@@ -1,9 +1,9 @@
 const db = require("../model/index.js");
-const contract = db.contract;
+const contrat = db.contrat;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new contract
-exports.createContract = (req, res) => {
+exports.createContrat = (req, res) => {
     // Validate request
     if (!req.body) {
         res.status(400).send({
@@ -12,21 +12,21 @@ exports.createContract = (req, res) => {
         return;
       }
     
-    contract.create(req.body)
+    contrat.create(req.body)
     .then(data => {
         res.send(data);
     })
     .catch(err => {
         res.status(500).send({
         message:
-            err.message || "Some error occurred while creating the contract."
+            err.message || "Some error occurred while creating the contrat."
         });
     });
 };
 
 // Retrieve all contract from the database.
-exports.findAllContracts = (req, res) => {
-    contract.findAll()
+exports.findAllContrats = (req, res) => {
+  contrat.findAll()
     .then(data => {
       res.send(data);
     })
@@ -39,9 +39,9 @@ exports.findAllContracts = (req, res) => {
 };
 
 // Find a single contract with an id
-exports.findOneContract = (req, res) => {
+exports.findOneContrat = (req, res) => {
     const id = req.params.id;
-    contract.findByPk(id)
+    contrat.findByPk(id)
     .then(data => {
       res.send(data);
     })
@@ -56,7 +56,7 @@ exports.findOneContract = (req, res) => {
 exports.updateContract = (req, res) => {
     const id = req.params.id;
 
-    contract.update(req.body, {
+    contrat.update(req.body, {
         where: { id: id }
     })
     .then(num => {
@@ -81,7 +81,7 @@ exports.updateContract = (req, res) => {
 exports.deleteContract = (req, res) => {
     const id = req.params.id;
 
-    contract.destroy({
+    contrat.destroy({
       where: { id: id }
     })
     .then(num => {

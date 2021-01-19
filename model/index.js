@@ -21,7 +21,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // loading models
-db.contract = require("./contract.model.js")(sequelize, Sequelize);
+db.contrat = require("./contrat.model.js")(sequelize, Sequelize);
 db.client = require("./client.model.js")(sequelize, Sequelize);
 db.site = require("./site.model.js")(sequelize, Sequelize);
 db.employe = require("./employe.model.js")(sequelize, Sequelize);
@@ -30,9 +30,9 @@ db.intervention = require("./intervention.model.js")(sequelize, Sequelize);
 db.priorite = require("./priorite.model.js")(sequelize, Sequelize);
 db.tache = require("./tache.model.js")(sequelize, Sequelize);
 
-//client_contract association
-db.client.hasMany(db.contract);
-db.contract.belongsTo(db.client, {});
+//client_contrat association
+db.client.hasMany(db.contrat);
+db.contrat.belongsTo(db.client, {});
 
 //client_site association
 db.client.hasMany(db.site);

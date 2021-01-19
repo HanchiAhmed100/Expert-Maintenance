@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize"); // Import the built-in data types
 module.exports = (sequelize, Sequelize) => {
-    const contact = sequelize.define("contact", {
+    const contrat = sequelize.define("contrat", {
       datedebut: {
         type: Sequelize.DATE
       },
@@ -14,5 +14,5 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER
       }
     });  
-    return contact;
+    return contrat;
   };
