@@ -12,6 +12,12 @@ module.exports = app => {
     
     // login employe
     router.post("/login", employe.login);
+
+    // set employe intervention
+    router.post("/interventions", employe.Set_Employe_Interventions);
+    
+    // set employe intervention
+    router.get("/interventions/:id", employe.Employe_Interventions);
     
     // Retrieve a single employe with id
     router.get("/:id", employe.findOne);
@@ -22,5 +28,7 @@ module.exports = app => {
     // Delete a employe with id
     router.delete("/:id", employe.delete);
   
+
+
     app.use('/api/employe', router);
   };

@@ -1,5 +1,6 @@
 const db = require("../model/index.js");
 const employe = db.employe;
+const intervention = db.intervention;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new employe
@@ -50,8 +51,74 @@ exports.login = (req , res) => {
           err.message || "Some error occurred while login"
       });
   });
+}
+
+exports.Set_Employe_Interventions = (req,res) =>{
+    employe.findOne({
+      where: {
+        id: req.body.employe_id
+      },
+      include : intervention
+    })
+    .then(emp => {
+      emp.addIntervention(req.body.intervention_id)
+      res.send({message : "SUCESS"})
+    })
+    .catch(err => {
+      res.status(500).send({
+        "err" : err
+      });
+    });
 
 
+
+  // employe.findOne({
+  //   where: {
+  //     id: req.body.employe_id
+  //   }
+  // })
+  // .then(emp => {
+  //   console.log("----------------------------- \n"+emp)
+  //   intervention.findOne({
+  //     where: {
+  //       id: req.body.intervention_id
+  //     }
+  //   })
+  //   .then(inter => {
+  //     console.log("----------------------------- \n"+inter)
+
+  //     emp.addIntervention(inter)
+  //   })
+  //   .catch(err => {
+  //     res.status(500).send({
+  //       "err" : err
+  //     });
+  //   });
+  // })
+  // .catch(err => {
+  //   res.status(500).send({
+  //     "err" : err
+  //   });
+  // });
+
+
+}
+exports.Employe_Interventions = (req,res) =>{
+  const id = req.params.id;
+  employe.findOne({
+    where: {
+      id: id
+    },
+    include: intervention
+  })
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message: "Error retrieving employe with id=" + id
+    });
+  });
 }
 
 // Retrieve all employe from the database.
