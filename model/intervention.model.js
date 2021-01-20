@@ -2,6 +2,9 @@ const { DataTypes } = require("sequelize"); // Import the built-in data types
 module.exports = (sequelize, Sequelize) => {
     const intervention = sequelize.define("intervention", {
 
+        titre:{
+            type : Sequelize.STRING
+        },
         datedebut: {
             type: Sequelize.DATE
         },

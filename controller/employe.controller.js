@@ -69,39 +69,6 @@ exports.Set_Employe_Interventions = (req,res) =>{
         "err" : err
       });
     });
-
-
-
-  // employe.findOne({
-  //   where: {
-  //     id: req.body.employe_id
-  //   }
-  // })
-  // .then(emp => {
-  //   console.log("----------------------------- \n"+emp)
-  //   intervention.findOne({
-  //     where: {
-  //       id: req.body.intervention_id
-  //     }
-  //   })
-  //   .then(inter => {
-  //     console.log("----------------------------- \n"+inter)
-
-  //     emp.addIntervention(inter)
-  //   })
-  //   .catch(err => {
-  //     res.status(500).send({
-  //       "err" : err
-  //     });
-  //   });
-  // })
-  // .catch(err => {
-  //   res.status(500).send({
-  //     "err" : err
-  //   });
-  // });
-
-
 }
 exports.Employe_Interventions = (req,res) =>{
   const id = req.params.id;

@@ -1,3 +1,4 @@
+const { client } = require("../model/index.js");
 const db = require("../model/index.js");
 const contrat = db.contrat;
 const Op = db.Sequelize.Op;
@@ -26,7 +27,9 @@ exports.createContrat = (req, res) => {
 
 // Retrieve all contract from the database.
 exports.findAllContrats = (req, res) => {
-  contrat.findAll()
+  contrat.findAll({      
+    include : client
+  })
     .then(data => {
       res.send(data);
     })

@@ -1,3 +1,4 @@
+const { intervention } = require("../model/index.js");
 const db = require("../model/index.js");
 const tache = db.tache;
 const Op = db.Sequelize.Op;
@@ -25,7 +26,7 @@ exports.create = (req, res) => {
 
 // Retrieve all tache from the database.
 exports.findAll = (req, res) => {
-    tache.findAll()
+    tache.findAll({ include : intervention})
     .then(data => {
       res.send(data);
     })

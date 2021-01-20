@@ -19,5 +19,8 @@ module.exports = app => {
     // Delete a contract with id
     router.delete("/:id", intervention.delete);
   
+    router.get("/employes/:id", intervention.findInterventionEmployes)
+
+
     app.use('/api/intervention', router);
   };

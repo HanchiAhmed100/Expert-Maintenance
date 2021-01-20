@@ -1,8 +1,21 @@
-module.exports = {
-    HOST: "sql7.freemysqlhosting.net",
-    USER: "sql7387908",
-    PASSWORD: "iyts6RU9a3",
-    DB: "sql7387908",
+// module.exports = {
+//     HOST: "sql7.freemysqlhosting.net",
+//     USER: "sql7387908",
+//     PASSWORD: "iyts6RU9a3",
+//     DB: "sql7387908",
+//     dialect: "mysql",
+//     pool: {
+//       max: 5,
+//       min: 0,
+//       acquire: 30000,
+//       idle: 10000
+//     }
+//   };
+  module.exports = {
+    HOST: "localhost",
+    USER: "root",
+    PASSWORD: "",
+    DB: "maintenace",
     dialect: "mysql",
     pool: {
       max: 5,
@@ -11,18 +24,5 @@ module.exports = {
       idle: 10000
     }
   };
-  // module.exports = {
-  //   HOST: "localhost",
-  //   USER: "root",
-  //   PASSWORD: "",
-  //   DB: "maintenace",
-  //   dialect: "mysql",
-  //   pool: {
-  //     max: 5,
-  //     min: 0,
-  //     acquire: 30000,
-  //     idle: 10000
-  //   }
-  // };
 
   //    &W#6G]kY{xt_vL*1

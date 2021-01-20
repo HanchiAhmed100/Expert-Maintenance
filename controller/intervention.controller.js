@@ -1,3 +1,4 @@
+const { site , priorite, employe } = require("../model/index.js");
 const db = require("../model/index.js");
 const intervention = db.intervention;
 const Op = db.Sequelize.Op;
@@ -25,7 +26,7 @@ exports.create = (req, res) => {
 
 // Retrieve all intervention from the database.
 exports.findAll = (req, res) => {
-    intervention.findAll()
+    intervention.findAll({include : [site ,priorite]})
     .then(data => {
       res.send(data);
     })
@@ -36,6 +37,21 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+// Retrieve intervention and employes from the database.
+exports.findInterventionEmployes = (req, res) => {
+  intervention.findOne({  include : employe})
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message:
+        err.message || "Some error occurred while retrieving intervention."
+    });
+  });
+};
+
 
 // Find a single intervention with an id
 exports.findOne = (req, res) => {

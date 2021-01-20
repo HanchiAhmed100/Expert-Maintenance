@@ -1,3 +1,4 @@
+const { client } = require("../model/index.js");
 const db = require("../model/index.js");
 const site = db.site;
 const Op = db.Sequelize.Op;
@@ -25,7 +26,7 @@ exports.create = (req, res) => {
 
 // Retrieve all site from the database.
 exports.findAll = (req, res) => {
-    site.findAll()
+    site.findAll({include : client})
     .then(data => {
       res.send(data);
     })
