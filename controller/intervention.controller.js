@@ -61,7 +61,7 @@ exports.findInterventionEmployes = (req, res) => {
 // Find a single intervention with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    intervention.findByPk(id)
+    intervention.findOne({where : {id : req.params.id} , include : [site ,priorite ]})
     .then(data => {
       res.send(data);
     })

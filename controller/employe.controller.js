@@ -1,3 +1,4 @@
+const { site, priorite } = require("../model/index.js");
 const db = require("../model/index.js");
 const employe = db.employe;
 const intervention = db.intervention;
@@ -76,7 +77,7 @@ exports.Employe_Interventions = (req,res) =>{
     where: {
       id: id
     },
-    include: intervention
+    include: intervention 
   })
   .then(data => {
     res.send(data);
