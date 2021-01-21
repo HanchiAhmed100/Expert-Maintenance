@@ -40,7 +40,12 @@ exports.findAll = (req, res) => {
 
 // Retrieve intervention and employes from the database.
 exports.findInterventionEmployes = (req, res) => {
-  intervention.findOne({  include : employe})
+  intervention.findOne({
+    where: {
+      id: req.params.id
+    },
+    include : [site ,priorite,employe]
+  })
   .then(data => {
     res.send(data);
   })
