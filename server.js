@@ -4,12 +4,9 @@ const cors = require("cors");
 
 const app = express();
 
-var corsOptions = {
-  	origin: ["http://localhost:8100","http://localhost:8080"]
-  
-};
+app.use(cors());
 
-app.use(cors(corsOptions));
+app.use(express.static(__dirname+"/public/"))
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
