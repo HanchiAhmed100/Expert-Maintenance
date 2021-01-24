@@ -1,4 +1,4 @@
-const { site , priorite, employe } = require("../model/index.js");
+const { site , priorite, employe, client, tache } = require("../model/index.js");
 const db = require("../model/index.js");
 const intervention = db.intervention;
 const Op = db.Sequelize.Op;
@@ -61,7 +61,7 @@ exports.findInterventionEmployes = (req, res) => {
 // Find a single intervention with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    intervention.findOne({where : {id : req.params.id} , include : [site ,priorite ]})
+    intervention.findOne({where : {id : req.params.id} , include : [site,priorite,tache ]})
     .then(data => {
       res.send(data);
     })
